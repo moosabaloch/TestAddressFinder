@@ -13,7 +13,8 @@ pipeline {
             steps {
                 nodejs('recent node') {
                     //sh 'npm test'
-                    echo 'npm --version'
+                    sh 'npm --version'
+                    sh 'node --version'
                 }
             }
         }
