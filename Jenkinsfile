@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 nodejs('recent node') {
-                    //sh 'npm test'
+                    //sh 'npm test'  
                     sh 'npm --version'
                     sh 'node --version'
                     echo 'Test Completed'
