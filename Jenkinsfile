@@ -15,6 +15,7 @@ pipeline {
                     //sh 'npm test'
                     sh 'npm --version'
                     sh 'node --version'
+                    echo 'Test Completed'
                 }
             }
         }
