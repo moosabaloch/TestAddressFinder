@@ -4,13 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 nodejs('recent node') {
+                    sh 'npm install'
                     sh 'npm run build'
                 }
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                nodejs('recent node') {
+                    sh 'npm test'
+                }
             }
         }
         stage('Deliver') { 
