@@ -5,11 +5,7 @@ pipeline {
             steps {
                 sh 'npm --version'
                 sh 'node --version'
-		    }
-            steps {
 		        sh 'npm install'
-            }
-            steps {
                 sh 'npm run build'
             }
         }
