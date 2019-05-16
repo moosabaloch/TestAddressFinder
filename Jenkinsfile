@@ -12,7 +12,8 @@ pipeline {
         stage('Test') {
             steps {
                 nodejs('recent node') {
-                    sh 'npm test'
+                    //sh 'npm test'
+                    echo 'npm --version'
                 }
             }
         }
