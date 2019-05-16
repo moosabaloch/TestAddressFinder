@@ -1,22 +1,29 @@
 pipeline {
-    agent any 
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
+    }
+    environment { 
+        CI = 'true'
+    }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'npm --version'
-                sh 'node --version'
-		        sh 'npm install'
-                sh 'npm run build'
+                sh 'npm install'
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
-                sh 'npm test' 
+                echo 'Test Completed ./jenkins/scripts/test.sh'
             }
         }
-        stage('Deploy') { 
+        stage('Deliver') { 
             steps {
-                echo 'Ready for deploy '
+                echo 'Run Deliver App ./jenkins/scripts/deliver.sh' 
+                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                echo 'Kill all process ./jenkins/scripts/kill.sh' 
             }
         }
     }
