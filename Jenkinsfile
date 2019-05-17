@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo 'Run Deliver App ./jenkins/scripts/deliver.sh' 
                 // input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                sh 'npm run deploy'
                 echo 'Kill all process ./jenkins/scripts/kill.sh' 
             }
         }
