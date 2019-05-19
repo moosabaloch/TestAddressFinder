@@ -9,13 +9,25 @@ pipeline {
                 }
             }
         }
-        stage('Test') { 
+        stage('Test : Master') { 
+            when { branch 'master' }
             steps {
                 nodejs('recent node') {
                     //sh 'npm test'  
                     sh 'npm --version'
                     sh 'node --version'
-                    echo 'Test Completed'
+                    echo 'Test master Completed'
+                }
+            }
+        }
+        stage('Test : Develop') { 
+            when { branch 'develop' }
+            steps {
+                nodejs('recent node') {
+                    //sh 'npm test'  
+                    sh 'npm --version'
+                    sh 'node --version'
+                    echo 'Test develop Completed'
                 }
             }
         }
