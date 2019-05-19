@@ -9,7 +9,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Test') { 
             steps {
                 nodejs('recent node') {
                     //sh 'npm test'  
@@ -25,8 +25,7 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'master') {
                         echo "MASTER URL"
-                    }
-                    if (env.BRANCH_NAME == 'develop') {
+                    }else if (env.BRANCH_NAME == 'develop') {
                         echo "DEVELOP URL"
                     }   
                 }
