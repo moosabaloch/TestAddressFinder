@@ -22,13 +22,6 @@ pipeline {
         stage('Deliver') { 
             steps {
                 echo 'Deploying...' + env.BRANCH_NAME
-                step {                    
-                    if (env.BRANCH_NAME == "master") {
-                        echo "MASTER URL"
-                    }else if (env.BRANCH_NAME == "develop") {
-                        echo "DEVELOP URL"
-                    }   
-                }
                 echo 'Run Deliver App ./jenkins/scripts/deliver.sh' 
                 // input message: 'Finished using the web site? (Click "Proceed" to continue)' 
                 // sh 'npm run deploy'
