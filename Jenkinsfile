@@ -21,13 +21,14 @@ pipeline {
         }
      
         stage('Deliver') { 
-            if (env.BRANCH_NAME == 'master') {
-                echo "MASTER URL"
+            scripts {
+                if (env.BRANCH_NAME == 'master') {
+                    echo "MASTER URL"
+                }
+                if (env.BRANCH_NAME == 'develop') {
+                    echo "DEVELOP URL"
+                }   
             }
-            if (env.BRANCH_NAME == 'develop') {
-                echo "DEVELOP URL"
-            }   
-        
             steps {
                 echo 'Deploying...' + env.BRANCH_NAME
                 echo 'Run Deliver App ./jenkins/scripts/deliver.sh' 
