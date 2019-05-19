@@ -24,9 +24,9 @@ pipeline {
                 echo 'Deploying...' + env.BRANCH_NAME
             }
             steps {
-                if env.BRANCH_NAME == "master" {
+                if (env.BRANCH_NAME == "master") {
                     echo "MASTER URL"
-                }else if env.BRANCH_NAME == "develop" {
+                }else if (env.BRANCH_NAME == "develop") {
                     echo "DEVELOP URL"
                 }   
             }
