@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                nodejs('recent node') {
+                nodejs('node latest') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
@@ -12,7 +12,7 @@ pipeline {
         stage('Test : Master') { 
             when { branch 'master' }
             steps {
-                nodejs('recent node') {
+                nodejs('node latest') {
                     //sh 'npm test'  
                     sh 'npm --version'
                     sh 'node --version'
@@ -23,7 +23,7 @@ pipeline {
         stage('Test : Develop') { 
             when { branch 'develop' }
             steps {
-                nodejs('recent node') {
+                nodejs('node latest') {
                     //sh 'npm test'  
                     sh 'npm --version'
                     sh 'node --version'
